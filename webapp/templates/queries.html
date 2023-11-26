@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Queries</title>
+    <link rel="stylesheet" href="../static/css/nav.css">
+    <link rel="stylesheet" href="../static/css/query.css">
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="container">
+        <h1>Queries</h1>
+        {% for query in all_queries %}
+            <div class="query">
+                <div class="side-to-side">
+                    <div>
+                        <h3>{{ query.full_name }}</h3>
+                        <small>{{ query.location }}</small>
+                    </div>
+                    <div>
+                        <small><a href="mailto:{{ query.email }}">{{ query.email }}</a></small>
+                        <small><a href="tel:{{ query.phone }}">{{ query.phone }}</a></small>
+                    </div>
+                </div>
+                <pre>{{ query.message }}</pre>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

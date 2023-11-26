@@ -1,0 +1,46 @@
+<nav>
+    <div class="nav-logo">
+        <h2>Georgiana</h2>
+    </div>
+    {% if "id" not in session %}
+        <div class="nav-item">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/skills">Skills</a>
+            <a href="/about">About</a>
+            <a href="/admin/">Admin Login</a>
+            <a  class="nav-btn" href="/contact">Contact</a>
+        </div>
+    {% else %}
+        <div class="nav-item">
+            <a href="/admin/queries">Queries</a>
+            <a href="/admin/skills">Skills</a>
+            <a href="/admin/projects">Project</a>
+            <a href="/admin/update_profile">Update Profile</a>
+            <a href="/admin/logout">Logout</a>
+        </div>
+    {% endif %}
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="container">
+            {% if messages[0][0] == "error" %}
+                <div class="error message-box">
+                    <b>Please correct the following errors!</b>
+                    <ul class="error-messages">
+                        {% for category, message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% elif messages[0][0] == "success" %}
+                <div class="success message-box">
+                    {% for category, message in messages %}
+                        <b>{{ message }}</b>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endwith %}

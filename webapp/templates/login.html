@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container">
+                {% if messages[0][0] == "error" %}
+                    <div class="error message-box">
+                        <b>Please correct the following errors!</b>
+                        <ul class="error-messages">
+                            {% for category, message in messages %}
+                                <li>{{ message|safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% elif messages[0][0] == "success" %}
+                    <div class="success message-box">
+                        {% for category, message in messages %}
+                            <b>{{ message }}</b>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <form action="/admin/" method="post">
+        <h3>LOGIN AS ADMIN</h3>
+        <div class="form_input">
+            <label>Email Address</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="form_input">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
+        <div class="form_submit">
+            <input type="submit" value="Login!">
+        </div>
+    </form>
+</body>
+</html>

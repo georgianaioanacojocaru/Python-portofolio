@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../static/css/nav.css">
+    <link rel="stylesheet" href="../static/css/manage_project.css">
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="container">
+        <div class="my_projects">
+            <h3>MY PROJECTS</h3>
+            {% for project in my_project %}
+                <div class="project">
+                    <div class="side-to-side">
+                        <div>
+                            <h3>{{ project.title }}</h3>
+                            <small>{{ project.completed_on.strftime("%d-%b-%Y")  }}</small>
+                        </div>
+                        <div>
+                            <a href="{{ project.repo_link }}">Repo Link</a>
+                        </div>
+                    </div>
+                    <pre>{{ project.desc|safe }}</pre>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

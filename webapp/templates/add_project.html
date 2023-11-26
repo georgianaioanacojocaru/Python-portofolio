@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Project</title>
+    <link rel="stylesheet" href="../static/css/nav.css">
+    <link rel="stylesheet" href="../static/css/contact.css">
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="container">
+        <h1>Add New Projects</h1>
+        <form action="/admin/add_new_project" method="post">
+            <div class="form_input">
+                <label>Project Title</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="form_input">
+                <label>Description</label>
+                <textarea name="desc" required></textarea>
+            </div>
+            <div class="form_name">
+                <div class="form_input">
+                    <label>Repository Link</label>
+                    <input type="text" name="link" required>
+                </div>
+                <div class="form_input">
+                    <label>Completed On</label>
+                    <input type="date" name="date_completed" required>
+                </div>
+            </div>
+            <div class="form_submit">
+                <input type="submit" value="Add Project">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

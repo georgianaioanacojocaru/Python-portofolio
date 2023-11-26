@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../static/css/nav.css">
+    <link rel="stylesheet" href="../static/css/contact.css">
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="full-height container">
+        <h1>Contact Me!</h1>
+        <form id="contact-form" action="/contact" method="post">
+            <div class="form_name">
+                <div class="form_input">
+                    <label>Full Name</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="form_input">
+                    <label>Email Address</label>
+                    <input type="text" name="email">
+                </div>
+            </div>
+            <div class="form_name">
+                <div class="form_input">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone">
+                </div>
+                <div class="form_input">
+                    <label>Location</label>
+                    <select name="location">
+                        <option value="">-- Choose City --</option>
+                        {% for location in locations %}
+                            <option value="{{ location }}">{{ location }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form_input">
+                <label>Message</label>
+                <textarea name="message"></textarea>
+            </div>
+            <div class="form_submit">
+                <input type="submit" value="Send!">
+            </div>
+        </form>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>

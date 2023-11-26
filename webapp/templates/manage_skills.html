@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Skills</title>
+    <link rel="stylesheet" href="../static/css/nav.css">
+    <link rel="stylesheet" href="../static/css/manage_skill.css">
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="container">
+        <h1>Manage Skills</h1>
+        <div class="add-skill">
+            <form action="/admin/skills" method="post">
+                <h3>ADD NEW SKILL</h3>
+                <div class="form_name">
+                    <div class="form_input">
+                        <label>Skill Name</label>
+                        <input type="text" name="skill_name" required>
+                    </div>
+                    <div class="form_input">
+                        <label>Experience</label>
+                        <select name="skill_experience" required>
+                            {% for level in levels %}
+                                <option value="{{ level }}">{{ level.capitalize() }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form_submit">
+                        <input type="submit" value="Add Skill">
+                    </div>
+                    </div>
+            </form>
+        </div>
+        <div class="my_skills">
+            <h3>MY SKILLS</h3>
+            <table cellspacing="0" cellpadding="3px">
+                <thead>
+                    <tr>
+                        <th style="text-align: center">#</th>
+                        <th>Skill Name</th>
+                        <th>Level</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for skill in my_skills %}
+                        <tr>
+                            <td style="text-align: center">{{ loop.index }}</td>
+                            <td>{{ skill.name.capitalize() }}</td>
+                            <td>{{ skill.level.capitalize() }}</td>
+                            <td style="width: 100px">
+                                <a href="/admin/skills/delete/{{ skill.id }}">Remove</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

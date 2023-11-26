@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Update Profile</title>
+        <link rel="stylesheet" href="../static/css/nav.css">
+        <link rel="stylesheet" href="../static/css/contact.css">
+        <style>
+            h3{
+                color: var(--mediumblue);
+            }
+            .profile_pic{
+                width: 200px;
+                height: 200px;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 100%;
+                margin: 20px auto 0;
+            }
+
+            .profile_pic:hover label{
+                display: flex;
+            }
+
+            .profile_pic label{
+                display: none;
+                justify-content: center;
+                align-items: center;
+                height: 200px;
+                width: 200px;
+                font-size: 20px;
+                font-weight: bold;
+                background-color: rgba(15, 33, 189, 0.7);
+                border-radius: 100%;
+                color: var(--limegreen);
+                cursor: pointer;
+                transition: 0.3s ease all;
+            }
+            #profile_pic{
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        {% include "nav-bar.html" %}
+        <div class="container">
+            <form action="/admin/update_profile" method="post" enctype="multipart/form-data">
+                <div class="profile_pic" style='background-image: url("../static/images/{{ about.profile_pic }}")'>
+                    <label for="profile_pic">UPDATE</label>
+                    <input id="profile_pic" type="file" name="profile_pic">
+                </div>
+                <h3>CREDENTIALS</h3>
+                <div class="form_name">
+                    <div class="form_input">
+                        <label>Email Address</label>
+                        <input type="email" name="email" value="{{ cred.email }}" required>
+                    </div>
+                    <div class="form_input">
+                        <label>Password</label>
+                        <input type="text" name="password" value="{{ cred.password }}" required>
+                    </div>
+                </div>
+                <h3>ABOUT ME</h3>
+                <div class="form_input">
+                    <label>Full Name</label>
+                    <input type="text" name="name" value="{{ about.full_name }}" required>
+                </div>
+                <div class="form_input">
+                    <label>About Me</label>
+                    <textarea name="about" required>{{ about.about|safe }}</textarea>
+                </div>
+                <div class="form_name">
+                    <div class="form_input">
+                        <label>LinkedIn</label>
+                        <input type="text" name="linkedin" value="{{ about.linked_in }}" required>
+                    </div>
+                    <div class="form_input">
+                        <label>Instagram</label>
+                        <input type="text" name="instagram" value="{{ about.instagram }}" required>
+                    </div>
+                </div>
+                <div class="form_submit">
+                    <input type="submit" value="Save Changes">
+                </div>
+            </form>
+        </div>
+        <script src="../static/js/image_updater.js"></script>
+    </body>
+</html>

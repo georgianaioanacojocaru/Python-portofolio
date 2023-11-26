@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Project</title>
+    <link rel="stylesheet" href="../static/css/nav.css">
+    <link rel="stylesheet" href="../static/css/manage_project.css">
+</head>
+<body>
+    {% include "nav-bar.html" %}
+    <div class="container">
+        <div class="side-to-side">
+            <h1>Your Projects</h1>
+            <a class="add_btn" href="/admin/add_new_project">Add New Project</a>
+        </div>
+        <div class="my_projects">
+            <h3>MY PROJECTS</h3>
+            {% for project in projects %}
+                <div class="project">
+                    <div class="side-to-side">
+                        <div>
+                            <h3>{{ project.title }}</h3>
+                            <small>{{ project.completed_on.strftime("%d-%b-%Y")  }}</small>
+                        </div>
+                        <div>
+                            <a href="{{ project.repo_link }}">Repo Link</a>
+                            <a style="color: red" href="/admin/delete_project/{{ project.id}}">Remove</a>
+                        </div>
+                    </div>
+                    <pre>{{ project.desc|safe }}</pre>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

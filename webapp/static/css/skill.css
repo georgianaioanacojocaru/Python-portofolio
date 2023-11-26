@@ -1,0 +1,45 @@
+.para{
+    margin-top: 20px;
+    height: 65vh;
+}
+.skills{
+    flex: 2 0 700px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+h3{
+    margin: 0;
+}
+
+.skill{
+    width: 200px;
+    height: 150px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: 0.2s ease all;
+    background-color: var(--lightblue);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill:hover{
+    transform: scale(1.02);
+}
+
+.skill_level{
+    position: absolute;
+    bottom: -33px;
+    right: -60px;
+    transform: rotate(-35deg);
+    background-color: var(--limegreen);
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    text-align: center;
+}

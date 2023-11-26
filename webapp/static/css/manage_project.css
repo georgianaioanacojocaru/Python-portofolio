@@ -1,0 +1,39 @@
+.side-to-side{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.side-to-side .add_btn{
+    background-color: lightblue;
+    padding: 10px 20px;
+    color: var(--mediumblue);
+    border-radius: 100px;
+    border: 2px solid var(--mediumblue);
+    font-weight: bold;
+}
+
+.side-to-side .add_btn:hover{
+    background-color: var(--mediumblue);
+    color: white;
+}
+
+.project{
+    padding: 20px 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.project a{
+    display: block;
+}
+
+.project h3{
+    margin: 0;
+}
+
+pre{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}

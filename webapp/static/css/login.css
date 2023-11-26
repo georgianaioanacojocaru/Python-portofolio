@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+:root{
+    --darkblue: #0F21BD;
+    --mediumblue: #008DD5;
+    --lightblue: #DEF2F8;
+    --limegreen: #C2F929;
+}
+
+body{
+    margin: 0;
+    scroll-behavior: smooth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+    gap: 5px;
+}
+
+*{
+    font-family: Nunito, sans-serif;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 600px;
+}
+
+.form_input{
+    flex: 1;
+}
+
+label{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form_input input{
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+}
+
+.form_input input:focus{
+    border-bottom: 2px solid var(--mediumblue);
+}
+
+.form_submit{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form_submit input{
+    padding: 10px 0;
+    width: 300px;
+    background-color: var(--lightblue);
+    border-radius: 100px;
+    border: 2px solid var(--mediumblue);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--mediumblue);
+}
+
+.form_submit input:hover{
+    background-color: var(--mediumblue);
+    color: white;
+}
+
+.message-box{
+    padding: 10px 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 600px;
+}
+
+.error{
+    background-color: #ffdad6;
+    color: red;
+    border: 1px solid red;
+}
+
+.success{
+    background-color: #f1ffe7;
+    color: #359300;
+    border: 1px solid #359300;
+}
+
+.error-message-box ul{
+    margin: 0;
+}

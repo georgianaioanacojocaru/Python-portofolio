@@ -1,0 +1,31 @@
+.query{
+    margin: 30px 0 15px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+h3{
+    margin: 0;
+}
+
+pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.side-to-side{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+small, a{
+    color: var(--mediumblue);
+    display: block;
+}
+
+small, small a{
+    text-decoration: underline;
+    font-size: 15px;
+}
